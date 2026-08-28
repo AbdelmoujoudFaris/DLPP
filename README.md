@@ -1,5 +1,5 @@
 # InterfaceShapeAI
-<p align="center">
+<p align="left">
   <a href="img/logo.png" target="_blank">
     <img src="img/logo.png" alt="docking-ai logo" width="400">
   </a>
