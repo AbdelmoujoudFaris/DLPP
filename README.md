@@ -43,14 +43,26 @@ useful for testing the pipeline but is *not* scientifically meaningful.
 
 ```mermaid
 flowchart LR
-    A[Protein Complex] --> B[Interface Detection]
-    B --> C[Burial Depth]
-    C --> D[3D Voxelization]
-    D --> E[3D CNN Encoder]
-    E --> F[Structure Head]
-    E --> G[Function Head]
-    G --> H[Explainability]
-    H --> I[Important Interface Residues]
+    A["🧬 Protein Complex"] --> B["🔍 Interface Detection"]
+    B --> C["📏 Burial Depth"]
+    C --> D["🧊 3D Voxelization"]
+    D --> E["🧠 3D CNN Encoder"]
+
+    E --> F["🏗️ Structure Head"]
+    E --> G["🧬 Function Head"]
+
+    G --> H["🔎 Explainability"]
+    H --> I["🎯 Important Interface Residues"]
+
+    style A fill:#E8F1FF,stroke:#3B82F6,stroke-width:2px
+    style B fill:#EEF6FF,stroke:#3B82F6,stroke-width:2px
+    style C fill:#EEF6FF,stroke:#3B82F6,stroke-width:2px
+    style D fill:#EEF6FF,stroke:#3B82F6,stroke-width:2px
+    style E fill:#EDE9FE,stroke:#7C3AED,stroke-width:3px
+    style F fill:#ECFDF5,stroke:#10B981,stroke-width:2px
+    style G fill:#ECFDF5,stroke:#10B981,stroke-width:2px
+    style H fill:#FFF7ED,stroke:#F97316,stroke-width:2px
+    style I fill:#FEF2F2,stroke:#EF4444,stroke-width:2px
 ```
 
 ## Installation
