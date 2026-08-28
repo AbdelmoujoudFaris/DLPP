@@ -1,4 +1,9 @@
 # InterfaceShapeAI
+<p align="left">
+  <a href="img/logo.png" target="_blank">
+    <img src="img/logo.png" alt="docking-ai logo" width="400">
+  </a>
+</p>
 
 **Deep Learning Prediction of Protein-Protein Interface Structure and Function from 3D Shape**
 
