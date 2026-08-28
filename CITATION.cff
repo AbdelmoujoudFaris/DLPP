@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "InterfaceShapeAI: Deep Learning Prediction of Protein-Protein Interface Structure and Function from 3D Shape"
+version: 0.1.0
+date-released: 2026-08-28
+authors:
+  - name: "Abdelmoujoud Faris"
+license: MIT
+repository-code: "https://github.com/USERNAME/InterfaceShapeAI"

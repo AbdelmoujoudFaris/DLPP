@@ -1,0 +1,57 @@
+# Multi-resolution (v0.2) configuration for InterfaceShapeAI.
+# Same fields as configs/default.yaml except where noted; see docs/methodology.md.
+
+project:
+  name: InterfaceShapeAI
+  seed: 42
+
+device:
+  type: auto
+
+interface:
+  distance_cutoff: 5.0
+  definition: heavy_atom
+  min_contacts: 1
+  include_heteroatoms: false
+
+burial_depth:
+  method: geometric
+  probe_radius: 8.0
+  normalize: true
+
+voxelization:
+  voxel_size: 1.0              # high-resolution grid (models.multires_cnn: encoder_high)
+  grid_size: 32
+  low_resolution_voxel_size: 2.5  # low-resolution grid (encoder_low), same interface
+  low_resolution_grid_size: 32
+  channels:
+    - occupancy
+    - burial_depth
+    - hydrophobicity
+    - charge
+  normalization: per_interface
+
+model:
+  architecture: multires_cnn   # models.factory.MODEL_REGISTRY["multires_cnn"]
+  fusion: concatenation        # concatenation | gated | attention
+  base_filters: 16
+  embedding_dim: 128
+  dropout: 0.2
+  structure_classes: [helix, sheet, coil]
+  function_classes: [enzyme, dna_binding, signalling, immune, structural]
+
+training:
+  epochs: 20
+  batch_size: 4
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  optimizer: AdamW
+  loss_weight_structure: 1.0
+  loss_weight_function: 1.0
+  structure_loss: cross_entropy    # cross_entropy | focal | label_smoothing
+  function_loss: cross_entropy     # cross_entropy | focal | label_smoothing | bce
+  focal_gamma: 2.0
+  label_smoothing: 0.1
+  early_stopping:
+    enabled: true
+    patience: 10

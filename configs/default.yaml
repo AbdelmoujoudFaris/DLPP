@@ -1,0 +1,50 @@
+# Default configuration for InterfaceShapeAI v0.1
+# Every scientific choice here is explicit and overridable - see docs/methodology.md.
+
+project:
+  name: InterfaceShapeAI
+  seed: 42
+
+device:
+  type: auto  # auto | cpu | cuda | mps
+
+interface:
+  distance_cutoff: 5.0        # Angstrom, heavy-atom inter-chain distance
+  definition: heavy_atom      # heavy_atom | ca
+  min_contacts: 1
+  include_heteroatoms: false
+
+burial_depth:
+  method: geometric           # geometric (v0.1). sasa/combined planned v0.2+
+  probe_radius: 8.0           # Angstrom, neighbor-sphere radius for local density
+  normalize: true             # rescale to [0, 1] across the interface
+
+voxelization:
+  voxel_size: 1.0             # Angstrom per voxel edge
+  grid_size: 32               # cubic grid: grid_size^3 voxels
+  channels:
+    - occupancy
+    - burial_depth
+    - hydrophobicity
+    - charge
+  normalization: per_interface  # global | per_interface
+
+model:
+  architecture: cnn3d         # see models.factory.MODEL_REGISTRY
+  base_filters: 16
+  embedding_dim: 128
+  dropout: 0.2
+  structure_classes: [helix, sheet, coil]
+  function_classes: [enzyme, dna_binding, signalling, immune, structural]
+
+training:
+  epochs: 20
+  batch_size: 4
+  learning_rate: 0.0001
+  weight_decay: 0.01
+  optimizer: AdamW
+  loss_weight_structure: 1.0
+  loss_weight_function: 1.0
+  early_stopping:
+    enabled: true
+    patience: 10

@@ -1,0 +1,27 @@
+[
+  {
+    "voxel_file": "sample_0000.pt",
+    "structure_label": 0,
+    "function_label": 1
+  },
+  {
+    "voxel_file": "sample_0001.pt",
+    "structure_label": 2,
+    "function_label": 4
+  },
+  {
+    "voxel_file": "sample_0002.pt",
+    "structure_label": 2,
+    "function_label": 1
+  },
+  {
+    "voxel_file": "sample_0003.pt",
+    "structure_label": 1,
+    "function_label": 1
+  },
+  {
+    "voxel_file": "sample_0004.pt",
+    "structure_label": 2,
+    "function_label": 0
+  }
+]
